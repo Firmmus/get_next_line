@@ -10,82 +10,135 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdlib.h>
-#include <fcntl.h>
-#include <stdio.h>
+#include <unistd.h>
 
-#define BUFFER_SIZE 32
+#define BUFFER_SIZE 42
 
-char *get_next_line(int fd);
+char	*get_next_line(int fd);
+size_t	ft_strlen(const char *s);
+void    *ft_memcpy(void *dest, const void *src, size_t n);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strdup(const char *s1);
+char	*ft_strchr(const char *s, int c);
+char	*read_next_line(int fd, char *buffer, char **line, int *bytes_read);
 
-int main()
+char	*get_next_line(int fd)
 {
-    char *line = NULL;
-    while ((line = get_next_line(STDIN_FILENO)) != NULL) {
-        printf("%s\n", line);
-        free(line);
-    }
+	static char	buffer[BUFFER_SIZE + 1];
+	char		*line;
+	char		*new_line_ptr;
+	int			bytes_read;
 
-    if (line == NULL) {
-        printf("Fin de la entrada o error de lectura.\n");
-    }
-
-    return 0;
+	line = ft_strdup("");
+	if (!line)
+		return (NULL);
+	new_line_ptr = ft_strchr(buffer, '\n');
+	while (new_line_ptr == NULL)
+	{
+		line = read_next_line(fd, buffer, &line, &bytes_read);
+		if (!line || bytes_read <= 0)
+			break ;
+		new_line_ptr = ft_strchr(buffer, '\n');
+	}
+	if (bytes_read < 0 || !line)
+	{
+		free(line);
+		return (NULL);
+	}
+	if (new_line_ptr == NULL && buffer[0] != '\0')
+	{
+		line = ft_strjoin(line, buffer);
+		buffer[0] = '\0';
+	}
+	else if (new_line_ptr != NULL)
+	{
+		*new_line_ptr = '\0';
+		line = ft_strjoin(line, buffer);
+		if (!line)
+			return (NULL);
+		new_line_ptr++;
+		ft_memcpy(buffer, new_line_ptr, ft_strlen(new_line_ptr) + 1);
+	}
+	else
+	{
+		free(line);
+		line = NULL;
+	}
+	return (line);
 }
 
-char *get_next_line(int fd)
+size_t	ft_strlen(const char *str)
 {
-    static char buffer[BUFFER_SIZE];
-    static int buffer_pos = 0;
-    static int bytes_in_buffer = 0;
-    char *line = NULL;
-    int line_pos = 0;
-    int read_bytes = 0;
-    int end_of_file = 0;
+	int	idx;
 
-    while (!end_of_file) {
-        // Si el buffer está vacío, lee del archivo
-        if (buffer_pos >= bytes_in_buffer) {
-            read_bytes = read(fd, buffer, BUFFER_SIZE);
-            if (read_bytes <= 0) {
-                end_of_file = 1;
-                if (line_pos == 0) {
-                    return NULL; // No se ha leído nada, devolver NULL
-                }
-                break; // Se ha leído una línea, salir del bucle
-            }
-            buffer_pos = 0;
-            bytes_in_buffer = read_bytes;
-        }
-
-        // Busca el siguiente '\n' en el buffer
-        while (buffer_pos < bytes_in_buffer) {
-            if (buffer[buffer_pos] == '\n') {
-                end_of_file = 1;
-                break;
-            }
-            buffer_pos++;
-        }
-
-        // Copia la línea actual en el buffer a la línea que se devuelve
-        int line_length = line_pos + buffer_pos;
-        line = realloc(line, line_length + 1);
-        for (int i = line_pos; i < line_length; i++) {
-            line[i] = buffer[i - line_pos];
-        }
-        line_pos = line_length;
-
-        // Si se ha encontrado un '\n', salir del bucle
-        if (end_of_file) {
-            buffer_pos++; // Avanzar el puntero del buffer más allá del '\n'
-            break;
-        }
-    }
-
-    line[line_pos] = '\0'; // Terminar la línea con el caracter nulo
-
-    return line;
+	idx = 0;
+	while (str[idx])
+	{
+		idx++;
+	}
+	return (idx);
 }
+
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	size_t		idx;
+
+	idx = 0;
+	if (dest == src || !n)
+		return (dest);
+	while (idx < n)
+	{
+		*((char *)dest + idx) = *((char *)src + idx);
+		idx++;
+	}
+	return (dest);
+}
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*new_str;
+	size_t	s1_len;
+	size_t	s2_len;
+
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	new_str = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1));
+	if (!new_str)
+		return (NULL);
+	ft_memcpy(new_str, s1, s1_len);
+	ft_memcpy(new_str + s1_len, s2, s2_len);
+	new_str[s1_len + s2_len] = '\0';
+	return (new_str);
+}
+
+char	*ft_strdup(const char *s1)
+{
+	size_t	len;
+	char	*copy;
+
+	len = ft_strlen(s1);
+	copy = (char *)malloc(sizeof(char) * (len + 1));
+	if (!copy)
+		return (NULL);
+	ft_memcpy(copy, s1, len);
+	copy[len] = '\0';
+	return (copy);
+}
+
+char	*ft_strchr(const char *s, int c)
+{
+	while (*s != '\0')
+	{
+		if (*s == c)
+			return ((char *)s);
+		s++;
+	}
+	if (c == '\0')
+		return ((char *)s);
+	return (NULL);
+}
+
+char	*read_next_line(int fd, char *buffer, char **line, int *bytes_read)
 
 
