@@ -34,7 +34,8 @@ cc -Wall -Werror -Wextra -D BUFFER_SIZE=42 <archivos>.c.
 archivo al que apunta el fd ha cambiado desde la última vez que se llamó, siempre
 que read() no haya llegado al final del archivo.
 • Se considera que get_next_line() tiene un comportamiento indeterminado cuando
-lo que se lee es un archivo binario. Sin embargo, puedes
+lo que se lee es un archivo binario. Sin embargo, puedes inmplementar alguna
+manera lógica de sortear este problema, si quieres.
 
 • ¿Funciona correctamente tu get_next_line si el BUFFER_SIZE es 9999?
 ¿Y si es 1? ¿Qué tal con 10000000? ¿Sabes por qué?
