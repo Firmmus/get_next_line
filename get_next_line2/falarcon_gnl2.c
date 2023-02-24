@@ -1,5 +1,7 @@
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include <fcntl.h>
 
 #define BUFFER_SIZE 42
 
@@ -9,6 +11,20 @@ char    *read_buffer(int fd, char *buffer, int *bytes_read, int *buffer_pos);
 int find_newline(char *buffer, int buffer_pos, int bytes_read);
 char    *create_line(char *line, int *line_length, char *buffer, int buffer_pos);
 char    *get_next_line(int fd);
+
+int main()
+{
+    int fd = open("example.txt", O_RDONLY);
+    char *line;
+
+    while ((line = get_next_line(fd)))
+    {
+        printf("%s\n", line);
+        free(line);
+    }
+
+    return 0;
+}
 
 char *read_buffer(int fd, char *buffer, int *bytes_read, int *buffer_pos)
 {
