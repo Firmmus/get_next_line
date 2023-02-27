@@ -11,22 +11,23 @@
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#define GET_NEXT_LINE_H
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
+# include <string.h>
 # include <fcntl.h>
+# include <stdio.h>
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42 
-# endif
 
-void	*ft_realloc(void *ptr, size_t old_size, size_t new_size);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-char	*read_buffer(int fd, char *buffer, int *bytes_read, int *buffer_pos);
-int		find_newline(char *buffer, int buffer_pos, int bytes_read);
-char	*create_line(char *line, int *line_len, char *buffer, int buffer_pos);
 char	*get_next_line(int fd);
+char	*ft_read_buffer(int fd, char *buffer);
+char	*ft_search_line(char *buffer);
+char	*ft_updatebuffer(char *buffer);
+size_t	ft_strlen(const char *s);
+size_t	ft_strlcpy(char *dest, const char *src, size_t len);
+size_t	ft_strlcat(char *dest, const char *src, size_t len);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strchr(char *s, int c);
 
 #endif

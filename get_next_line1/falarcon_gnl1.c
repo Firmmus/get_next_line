@@ -1,13 +1,15 @@
-#include <unistd.h>
-#include <stdlib.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <fcntl.h>
 
 #define BUFFER_SIZE 42 
 
 char	*get_next_line(int fd);
 char	*read_next_line(int fd, char *buffer, char **line, int *bytes_read);
-int read_file(int fd, char *buffer, char **line);
+int		read_file(int fd, char *buffer, char **line);
 size_t	ft_strlen(const char *s);
-void    *ft_memcpy(void *dest, const void *src, size_t n);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strdup(const char *s1);
 char	*ft_strchr(const char *s, int c);
@@ -42,52 +44,58 @@ int main()
 
 char	*get_next_line(int fd)
 {
-    static char buffer[BUFFER_SIZE + 1];
-    char *line;
-    int bytes_read;
+	static char	buffer[BUFFER_SIZE + 1];
+	char		*line;
+	int			bytes_read;
 
-    line = ft_strdup("");
-    if (!line)
-        return (NULL);
-    bytes_read = read_file(fd, buffer, &line);
-    if (bytes_read < 0 || !line)
-    {
-        free(line);
-        return (NULL);
-    }
-    if (bytes_read == 0 && buffer[0] == '\0')
-    {
-        free(line);
-        return (NULL);
-    }
-    return (line);
+	line = ft_strdup("");
+	if (!line)
+		return (NULL);
+	bytes_read = read_file(fd, buffer, &line);
+	if (bytes_read < 0 || !line)
+	{
+		free(line);
+		return (NULL);
+	}
+	if (bytes_read == 0 && buffer[0] == '\0')
+	{
+		free(line);
+		return (NULL);
+	}
+	return (line);
 }
 
-int read_file(int fd, char *buffer, char **line)
-{
-    char *new_line_ptr;
-    int bytes_read;
 
-    new_line_ptr = ft_strchr(buffer, '\n');
-    while (new_line_ptr == NULL)
-    {
-        bytes_read = read(fd, buffer, BUFFER_SIZE);
-        if (bytes_read <= 0)
-            break ;
-        buffer[bytes_read] = '\0';
-        *line = ft_strjoin(*line, buffer);
-        new_line_ptr = ft_strchr(buffer, '\n');
-    }
-    if (new_line_ptr != NULL)
-    {
-        *new_line_ptr = '\0';
-        *line = ft_strjoin(*line, buffer);
-        if (!*line)
-            return (-1);
-        new_line_ptr++;
-        ft_memcpy(buffer, new_line_ptr, ft_strlen(new_line_ptr) + 1);
-    }
-    return (bytes_read);
+int	read_file(int fd, char *buffer, char **line)
+{	
+	char	*new_line_ptr;
+	int		bytes_read;
+
+	new_line_ptr = ft_strchr(buffer, '\n');
+	while (new_line_ptr == NULL)
+	{
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
+		if (bytes_read <= 0)
+			break ;
+		buffer[bytes_read] = '\0';
+		*line = ft_strjoin(*line, buffer);
+		new_line_ptr = ft_strchr(buffer, '\n');
+	}
+	if (new_line_ptr != NULL)
+	{
+		*new_line_ptr = '\0';
+		*line = ft_strjoin(*line, buffer);
+		if (!*line)
+			return (-1);
+		new_line_ptr++;
+		ft_memcpy(buffer, new_line_ptr, ft_strlen(new_line_ptr) + 1);
+	}
+	else
+	{
+		free(*line);
+		*line = NULL;
+	}
+	return (bytes_read);
 }
 
 char	*read_next_line(int fd, char *buffer, char **line, int *bytes_read)
@@ -155,10 +163,13 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	s2_len = ft_strlen(s2);
 	new_str = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1));
 	if (!new_str)
+	{
+		free((void *)s1);
 		return (NULL);
+	}
 	ft_memcpy(new_str, s1, s1_len);
-	ft_memcpy(new_str + s1_len, s2, s2_len);
-	new_str[s1_len + s2_len] = '\0';
+	ft_memcpy(new_str + s1_len, s2, s2_len + 1);
+	free((void *)s1);
 	return (new_str);
 }
 

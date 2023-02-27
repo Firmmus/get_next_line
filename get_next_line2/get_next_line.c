@@ -10,61 +10,99 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "get_next_line.h"
+
 char	*get_next_line(int fd)
 {
-	static char	buffer[BUFFER_SIZE];
-	static int	buffer_pos;
-	static int	bytes_read;
+	static char	*buffer;
 	char		*line;
-	int			line_len;
-	int			newline_pos;
 
-	buffer_pos = 0;
-	bytes_read = 0;
-	*line = NULL
-	line_len = 0;
-	newline_pos = -1;
-	while (newline_pos == -1)
-	{
-		if (buffer_pos >= bytes_read)
-			if (!(read_buffer(fd, buffer, &bytes_read, &buffer_pos)))
-				return (line);
-		newline_pos = find_newline(buffer, buffer_pos, bytes_read);
-		if (newline_pos == -1)
-			if (!(line = create_line(line, &line_len, buffer, bytes_read)))
-				return (NULL);
-		else
-			if (!(line = create_line(line, &line_len, buffer, newline_pos + 1)))
-				return (NULL);
-		buffer_pos = (newline_pos != -1 ? newline_pos + 1 : buffer_pos);
-	}	
+	if (fd < 0 || BUFFER_SIZE < 1)
+		return (NULL);
+	buffer = ft_read_buffer(fd, buffer);
+	if (!buffer)
+		return (NULL);
+	line = ft_search_line(buffer);
+	buffer = ft_updatebuffer(buffer);
 	return (line);
 }
 
-char	*read_buffer(int fd, char *buffer, int *bytes_read, int *buffer_pos)
-{
-	*buffer_pos = 0;
-	*bytes_read = read(fd, buffer, BUFFER_SIZE);
-	return (bytes_read > 0 ? buffer : NULL);
-}
 
-int	find_newline(char *buffer, int buffer_pos, int bytes_read)
+char	*ft_read_buffer(int fd, char *buff)
 {
-	while (buffer_pos < bytes_read && buffer[buffer_pos] != '\n')
-		buffer_pos++;
-	return (buffer_pos < bytes_read ? buffer_pos : -1);
-}
+	char	*str;
+	int		cread;
 
-char	*create_line(char *line, int *line_len, char *buffer, int buffer_pos)
-{
-	char	*new_line;
-	int		len;
-	len = (line ? *line_len : 0) + buffer_pos;
-	new_line = ft_realloc(line, *line_len, len + 1);
-	if (!new_line)
+	str = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!str)
 		return (NULL);
-	ft_memcpy(new_line + *line_len, buffer, buffer_pos);
-	new_line[len] = '\0';
-	*line_len = len;
-	return (new_line);
+	cread = 1;
+	while (cread != 0 && ft_strchr(buff, '\n') == 0)
+	{
+		cread = read(fd, str, BUFFER_SIZE);
+		if (cread == -1)
+		{
+			free(str);
+			return (NULL);
+		}
+		str[cread] = '\0';
+		buff = ft_strjoin(buff, str);
+	}
+	free(str);
+	return (buff);
+}
+
+char	*ft_search_line(char *buff)
+{
+	char	*line;
+	int		i;
+
+	i = 0;
+	if (!buff[i])
+		return (NULL);
+	while (buff[i] != '\n' && buff[i] != '\0')
+		i++;
+	line = (char *) malloc(sizeof(char) * (i + 2));
+	if (!line)
+		return (NULL);
+	i = 0;
+	while (buff[i] && buff[i] != '\n')
+	{
+		line[i] = buff[i];
+		i++;
+	}
+	if (buff[i] == '\n')
+	{
+		line[i] = buff[i];
+		i++;
+	}
+	line[i] = '\0';
+	return (line);
+}
+
+
+char	*ft_updatebuffer(char *buff)
+{
+	char	*upbuff;
+	int		i;
+	int		x;
+
+	i = 0;
+	x = 0;
+	while (buff[i] != '\n' && buff[i] != '\0')
+		i++;
+	if (!buff[i])
+	{
+		free(buff);
+		return (NULL);
+	}
+	upbuff = (char *) malloc(sizeof(char) * (ft_strlen(buff) - i + 1));
+	if (!upbuff)
+		return (NULL);
+	i++;
+	while (buff[i] != '\0')
+		upbuff[x++] = buff[i++];
+	upbuff[x] = '\0';
+	free(buff);
+	return (upbuff);
 }
