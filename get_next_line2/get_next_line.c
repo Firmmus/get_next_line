@@ -31,21 +31,21 @@ char	*get_next_line(int fd)
 char	*ft_read_buffer(int fd, char *buff)
 {
 	char	*str;
-	int		cread;
+	int		bytes_read;
 
 	str = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!str)
 		return (NULL);
-	cread = 1;
-	while (cread != 0 && ft_strchr(buff, '\n') == 0)
+	bytes_read = 1;
+	while (bytes_read != 0 && ft_strchr(buff, '\n') == 0)
 	{
-		cread = read(fd, str, BUFFER_SIZE);
-		if (cread == -1)
+		bytes_read = read(fd, str, BUFFER_SIZE);
+		if (bytes_read == -1)
 		{
 			free(str);
 			return (NULL);
 		}
-		str[cread] = '\0';
+		str[bytes_read] = '\0';
 		buff = ft_strjoin(buff, str);
 	}
 	free(str);

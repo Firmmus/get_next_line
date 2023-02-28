@@ -23,8 +23,8 @@
 # endif
 
 char	*get_next_line(int fd);
-char	*read_next_line(int fd, char *buffer, char **line, int *bytes_read);
-int		read_file(int fd, char *buffer, char **line);
+char	*ft_read_next_line(int fd, char *buffer, char **line, int *bytes_read);
+int		ft_read_file(int fd, char *buffer, char **line);
 size_t	ft_strlen(const char *s);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 char	*ft_strjoin(char const *s1, char const *s2);

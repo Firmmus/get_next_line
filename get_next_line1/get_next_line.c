@@ -35,7 +35,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int	read_file(int fd, char *buffer, char **line)
+int	ft_read_file(int fd, char *buffer, char **line)
 {	
 	char	*new_line_ptr;
 	int		bytes_read;
@@ -62,7 +62,7 @@ int	read_file(int fd, char *buffer, char **line)
 	return (bytes_read);
 }
 
-char	*read_next_line(int fd, char *buffer, char **line, int *bytes_read)
+char	*ft_read_next_line(int fd, char *buffer, char **line, int *bytes_read)
 {
 	char	*new_line_ptr;
 	char	*temp;
