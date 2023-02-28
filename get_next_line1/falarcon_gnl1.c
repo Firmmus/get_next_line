@@ -14,34 +14,6 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strdup(const char *s1);
 char	*ft_strchr(const char *s, int c);
 
-int main()
-{
-    int fd1 = open("example1.txt", O_RDONLY);
-    int fd2 = open("example2.txt", O_RDONLY);
-    int fd3 = open("example3.txt", O_RDONLY);
-    char *line;
-
-    while ((line = get_next_line(fd1)))
-    {
-        printf("%s\n", line);
-        free(line);
-    }
-
-    while ((line = get_next_line(fd2)))
-    {
-        printf("%s\n", line);
-        free(line);
-    }
-
-    while ((line = get_next_line(fd3)))
-    {
-        printf("%s\n", line);
-        free(line);
-    }
-
-    return 0;
-}
-
 char	*get_next_line(int fd)
 {
 	static char	buffer[BUFFER_SIZE + 1];
@@ -128,7 +100,7 @@ char	*read_next_line(int fd, char *buffer, char **line, int *bytes_read)
 
 size_t	ft_strlen(const char *str)
 {
-	int	idx;
+	size_t	idx;
 
 	idx = 0;
 	while (str[idx])
@@ -189,13 +161,13 @@ char	*ft_strdup(const char *s1)
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != '\0')
-	{
-		if (*s == c)
-			return ((char *)s);
-		s++;
-	}
-	if (c == '\0')
-		return ((char *)s);
-	return (NULL);
+     while (*s != '\0')
+    {
+        if (*s == (char)c)
+            return (char*)s;
+        s++;
+    }
+    if (*s == '\0' && (char)c == '\0')
+        return (char*)s;
+    return (NULL);
 }

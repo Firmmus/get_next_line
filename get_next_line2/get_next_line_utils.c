@@ -12,38 +12,40 @@
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(const char *str)
 {
-	size_t	i;
+	size_t	idx;
 
-	i = 0;
-	while (s[i] != '\0')
-		x++;
-	return (i);
+	idx = 0;
+	while (str[idx])
+	{
+		idx++;
+	}
+	return (idx);
 }
 
 size_t	ft_strlcat(char *dest, const char *src, size_t len)
 {
-	size_t	i;
-	size_t	j;
+	size_t	d;
+	size_t	s;
 
-	i = ft_strlen(dest);
-	j = 0;
+	d = ft_strlen(dest);
+	s = 0;
 	if (len <= ft_strlen(dest))
 		return (ft_strlen(src) + len);
-	while (src[j] && i + 1 < len)
+	while (src[s] && d + 1 < len)
 	{
-		dest[i] = src[j];
-		i++;
-		j++;
+		dest[d] = src[s];
+		d++;
+		s++;
 	}
-	dest[i] = '\0';
-	return (i + ft_strlen(&src[j]));
+	dest[d] = '\0';
+	return (d + ft_strlen(&src[s]));
 }
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 {
-	size_t	i;
+	size_t		i;
 	size_t		len;
 
 	len = 0;
@@ -66,43 +68,43 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+    while (*s != '\0')
+    {
+        if (*s == (char)c)
+            return (char*)s;
+        s++;
+    }
+    if (*s == '\0' && (char)c == '\0')
+        return (char*)s;
+    return (NULL);
+}
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*str;
+	int		i;
+	int		j;
 
 	i = 0;
-	while (1)
+	j = 0;
+	if (!s1 || !s2)
+		return (NULL);
+	str = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!str)
+		return (NULL);
+	while (s1[i])
 	{
-		if (s[i] == (char)c)
-			return ((char *)s + i);
-		if (s[i] == '\0')
-		{
-			if ((char)c == '\0')
-				return ((char *)s + i);
-			else
-				break ;
-		}
+		str[i] = s1[i];
 		i++;
 	}
-	return (0);
-}
-
-char	*ft_strjoin(char *s1, char *s2)
-{
-	char	*new;
-	int		len;
-
-	if (!s1)
+	while (s2[j])
 	{
-		s1 = (char *)malloc(1 * sizeof(char));
-		s1[0] = '\0';
+		str[i] = s2[j];
+		i++;
+		j++;
 	}
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
-	len = ft_strlen(s1) + ft_strlen(s2) + 1;
-	new = (char *)malloc(sizeof(char) * len);
-	if (new == NULL)
-		return (NULL);
-	ft_strlcpy(new, s1, len);
-	ft_strlcpy(new + ft_strlen(s1), s2, ft_strlen(s2) + 1);
-	free(s1);
-	return (new);
+	str[i] = '\0';
+	free((char *)s1);
+	return (str);
 }
+
