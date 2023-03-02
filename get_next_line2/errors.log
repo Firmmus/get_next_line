@@ -1,0 +1,319 @@
+Error in test 2: get_next_line(100: "Invalid fd"): Segmentation fault!
+     in sigsegv utils.c:53:1
+     in ft_read_buffer get_next_line.c:39:50
+     in get_next_line get_next_line.c:22:9
+     in test_gnl_func file_utils.c:40:8
+     in main tester.c:103:2
+
+Error in test 1: get_next_line(5: "empty.txt"): Segmentation fault!
+     in sigsegv utils.c:53:1
+     in ft_read_buffer get_next_line.c:39:50
+     in get_next_line get_next_line.c:22:9
+     in test_gnl_func file_utils.c:40:8
+     in main tester.c:111:2
+
+Error in test 1: get_next_line(5: "1char.txt"): Segmentation fault!
+     in sigsegv utils.c:53:1
+     in ft_read_buffer get_next_line.c:39:50
+     in get_next_line get_next_line.c:22:9
+     in test_gnl_func file_utils.c:40:8
+     in main tester.c:117:2
+
+Error in test 1: get_next_line(5: "one_line_no_nl.txt"): Segmentation fault!
+     in sigsegv utils.c:53:1
+     in ft_read_buffer get_next_line.c:39:50
+     in get_next_line get_next_line.c:22:9
+     in test_gnl_func file_utils.c:40:8
+     in main tester.c:123:2
+
+Error in test 1: get_next_line(5: "only_nl.txt"): Segmentation fault!
+     in sigsegv utils.c:53:1
+     in ft_read_buffer get_next_line.c:39:50
+     in get_next_line get_next_line.c:22:9
+     in test_gnl_func file_utils.c:40:8
+     in main tester.c:129:2
+
+Error in test 1: get_next_line(5: "multiple_nl.txt"): Segmentation fault!
+     in sigsegv utils.c:53:1
+     in ft_read_buffer get_next_line.c:39:50
+     in get_next_line get_next_line.c:22:9
+     in test_gnl_func file_utils.c:40:8
+     in main tester.c:135:2
+
+Error in test 1: get_next_line(5: "variable_nls.txt"): Segmentation fault!
+     in sigsegv utils.c:53:1
+     in ft_read_buffer get_next_line.c:39:50
+     in get_next_line get_next_line.c:22:9
+     in test_gnl_func file_utils.c:40:8
+     in main tester.c:145:2
+
+Error in test 1: get_next_line(5: "lines_around_10.txt"): Segmentation fault!
+     in sigsegv utils.c:53:1
+     in ft_read_buffer get_next_line.c:39:50
+     in get_next_line get_next_line.c:22:9
+     in test_gnl_func file_utils.c:40:8
+     in main tester.c:162:2
+
+Error in test 1: get_next_line(5: "read_error.txt"): Segmentation fault!
+     in sigsegv utils.c:53:1
+     in ft_read_buffer get_next_line.c:39:50
+     in get_next_line get_next_line.c:22:9
+     in test_gnl_func file_utils.c:40:8
+     in main tester.c:193:2
+
+Error in test 1: get_next_line(0: "stdin"): Segmentation fault!
+     in sigsegv utils.c:53:1
+     in ft_read_buffer get_next_line.c:39:50
+     in get_next_line get_next_line.c:22:9
+     in test_gnl_func file_utils.c:40:8
+     in main tester.c:243:2
+
+Error in test 2: get_next_line(100: "Invalid fd"): Segmentation fault!
+     in sigsegv utils.c:53:1
+     in ft_read_buffer get_next_line.c:39:50
+     in get_next_line get_next_line.c:22:9
+     in test_gnl_func file_utils.c:40:8
+     in main tester.c:103:2
+
+Error in test 1: get_next_line(5: "empty.txt"): Segmentation fault!
+     in sigsegv utils.c:53:1
+     in ft_read_buffer get_next_line.c:39:50
+     in get_next_line get_next_line.c:22:9
+     in test_gnl_func file_utils.c:40:8
+     in main tester.c:111:2
+
+Error in test 1: get_next_line(5: "1char.txt"): Segmentation fault!
+     in sigsegv utils.c:53:1
+     in ft_read_buffer get_next_line.c:39:50
+     in get_next_line get_next_line.c:22:9
+     in test_gnl_func file_utils.c:40:8
+     in main tester.c:117:2
+
+Error in test 1: get_next_line(5: "one_line_no_nl.txt"): Segmentation fault!
+     in sigsegv utils.c:53:1
+     in ft_read_buffer get_next_line.c:39:50
+     in get_next_line get_next_line.c:22:9
+     in test_gnl_func file_utils.c:40:8
+     in main tester.c:123:2
+
+Error in test 1: get_next_line(5: "only_nl.txt"): Segmentation fault!
+     in sigsegv utils.c:53:1
+     in ft_read_buffer get_next_line.c:39:50
+     in get_next_line get_next_line.c:22:9
+     in test_gnl_func file_utils.c:40:8
+     in main tester.c:129:2
+
+Error in test 1: get_next_line(5: "multiple_nl.txt"): Segmentation fault!
+     in sigsegv utils.c:53:1
+     in ft_read_buffer get_next_line.c:39:50
+     in get_next_line get_next_line.c:22:9
+     in test_gnl_func file_utils.c:40:8
+     in main tester.c:135:2
+
+Error in test 1: get_next_line(5: "variable_nls.txt"): Segmentation fault!
+     in sigsegv utils.c:53:1
+     in ft_read_buffer get_next_line.c:39:50
+     in get_next_line get_next_line.c:22:9
+     in test_gnl_func file_utils.c:40:8
+     in main tester.c:145:2
+
+Error in test 1: get_next_line(5: "lines_around_10.txt"): Segmentation fault!
+     in sigsegv utils.c:53:1
+     in ft_read_buffer get_next_line.c:39:50
+     in get_next_line get_next_line.c:22:9
+     in test_gnl_func file_utils.c:40:8
+     in main tester.c:162:2
+
+Error in test 1: get_next_line(5: "giant_line.txt"): Segmentation fault!
+     in sigsegv utils.c:53:1
+     in ft_read_buffer get_next_line.c:39:50
+     in get_next_line get_next_line.c:22:9
+     in test_gnl_func file_utils.c:40:8
+     in main tester.c:173:3
+
+Error in test 1: get_next_line(5: "giant_line_nl.txt"): Segmentation fault!
+     in sigsegv utils.c:53:1
+     in ft_read_buffer get_next_line.c:39:50
+     in get_next_line get_next_line.c:22:9
+     in test_gnl_func file_utils.c:40:8
+     in main tester.c:181:3
+
+Error in test 1: get_next_line(5: "read_error.txt"): Segmentation fault!
+     in sigsegv utils.c:53:1
+     in ft_read_buffer get_next_line.c:39:50
+     in get_next_line get_next_line.c:22:9
+     in test_gnl_func file_utils.c:40:8
+     in main tester.c:193:2
+8   libdyld.dylib                       0x00007fff72f22cc9 start + 1
+
+##==##==##&&##==##==##./test2.out
+Error in test 1: get_next_line(5: "limits.txt"): Segmentation fault!
+0   test2.out                           0x000000010f030123 show_signal_msg + 419
+1   test2.out                           0x000000010f0301c1 sigsegv + 33
+2   libsystem_platform.dylib            0x00007fff7311b5fd _sigtramp + 29
+3   ???                                 0x0000000000000000 0x0 + 0
+4   test2.out                           0x000000010f033ad0 ft_read_buffer + 96
+5   test2.out                           0x000000010f033a08 get_next_line + 56
+6   test2.out                           0x000000010f0336f8 test_gnl_func_limits + 72
+7   test2.out                           0x000000010f0275ce test_limit + 526
+8   test2.out                           0x000000010f02c9f2 main + 21090
+9   libdyld.dylib                       0x00007fff72f22cc9 start + 1
+
+##==##==##&&##==##==##./test2.out
+Error in test 1: get_next_line(0: "stdin"): Segmentation fault!
+0   test2.out                           0x000000010f030123 show_signal_msg + 419
+1   test2.out                           0x000000010f0301c1 sigsegv + 33
+2   libsystem_platform.dylib            0x00007fff7311b5fd _sigtramp + 29
+3   ???                                 0x0000000000000000 0x0 + 0
+4   test2.out                           0x000000010f033ad0 ft_read_buffer + 96
+5   test2.out                           0x000000010f033a08 get_next_line + 56
+6   test2.out                           0x000000010f0332a1 test_gnl_func + 65
+7   test2.out                           0x000000010f02cefa main + 22378
+8   libdyld.dylib                       0x00007fff72f22cc9 start + 1
+
+##==##==##&&##==##==##./test2.out
+##==##==##&&##==##==##./test3.out
+Error in test 2: get_next_line(100: "Invalid fd"): Segmentation fault!
+0   test3.out                           0x000000010bd5b183 show_signal_msg + 419
+1   test3.out                           0x000000010bd5b221 sigsegv + 33
+2   libsystem_platform.dylib            0x00007fff7311b5fd _sigtramp + 29
+3   ???                                 0x0000000000000000 0x0 + 0
+4   test3.out                           0x000000010bd5eb30 ft_read_buffer + 96
+5   test3.out                           0x000000010bd5ea68 get_next_line + 56
+6   test3.out                           0x000000010bd5e301 test_gnl_func + 65
+7   test3.out                           0x000000010bd53327 main + 1399
+8   libdyld.dylib                       0x00007fff72f22cc9 start + 1
+
+##==##==##&&##==##==##./test3.out
+Error in test 1: get_next_line(5: "empty.txt"): Segmentation fault!
+0   test3.out                           0x000000010bd5b183 show_signal_msg + 419
+1   test3.out                           0x000000010bd5b221 sigsegv + 33
+2   libsystem_platform.dylib            0x00007fff7311b5fd _sigtramp + 29
+3   ???                                 0x0000000000000000 0x0 + 0
+4   test3.out                           0x000000010bd5eb30 ft_read_buffer + 96
+5   test3.out                           0x000000010bd5ea68 get_next_line + 56
+6   test3.out                           0x000000010bd5e301 test_gnl_func + 65
+7   test3.out                           0x000000010bd53943 main + 2963
+8   libdyld.dylib                       0x00007fff72f22cc9 start + 1
+
+##==##==##&&##==##==##./test3.out
+Error in test 1: get_next_line(5: "1char.txt"): Segmentation fault!
+0   test3.out                           0x000000010bd5b183 show_signal_msg + 419
+1   test3.out                           0x000000010bd5b221 sigsegv + 33
+2   libsystem_platform.dylib            0x00007fff7311b5fd _sigtramp + 29
+3   ???                                 0x0000000000000000 0x0 + 0
+4   test3.out                           0x000000010bd5eb30 ft_read_buffer + 96
+5   test3.out                           0x000000010bd5ea68 get_next_line + 56
+6   test3.out                           0x000000010bd5e301 test_gnl_func + 65
+7   test3.out                           0x000000010bd53f3c main + 4492
+8   libdyld.dylib                       0x00007fff72f22cc9 start + 1
+
+##==##==##&&##==##==##./test3.out
+Error in test 1: get_next_line(5: "one_line_no_nl.txt"): Segmentation fault!
+0   test3.out                           0x000000010bd5b183 show_signal_msg + 419
+1   test3.out                           0x000000010bd5b221 sigsegv + 33
+2   libsystem_platform.dylib            0x00007fff7311b5fd _sigtramp + 29
+3   ???                                 0x0000000000000000 0x0 + 0
+4   test3.out                           0x000000010bd5eb30 ft_read_buffer + 96
+5   test3.out                           0x000000010bd5ea68 get_next_line + 56
+6   test3.out                           0x000000010bd5e301 test_gnl_func + 65
+7   test3.out                           0x000000010bd54535 main + 6021
+8   libdyld.dylib                       0x00007fff72f22cc9 start + 1
+
+##==##==##&&##==##==##./test3.out
+Error in test 1: get_next_line(5: "only_nl.txt"): Segmentation fault!
+0   test3.out                           0x000000010bd5b183 show_signal_msg + 419
+1   test3.out                           0x000000010bd5b221 sigsegv + 33
+2   libsystem_platform.dylib            0x00007fff7311b5fd _sigtramp + 29
+3   ???                                 0x0000000000000000 0x0 + 0
+4   test3.out                           0x000000010bd5eb30 ft_read_buffer + 96
+5   test3.out                           0x000000010bd5ea68 get_next_line + 56
+6   test3.out                           0x000000010bd5e301 test_gnl_func + 65
+7   test3.out                           0x000000010bd54b2e main + 7550
+8   libdyld.dylib                       0x00007fff72f22cc9 start + 1
+
+##==##==##&&##==##==##./test3.out
+Error in test 1: get_next_line(5: "multiple_nl.txt"): Segmentation fault!
+0   test3.out                           0x000000010bd5b183 show_signal_msg + 419
+1   test3.out                           0x000000010bd5b221 sigsegv + 33
+2   libsystem_platform.dylib            0x00007fff7311b5fd _sigtramp + 29
+3   ???                                 0x0000000000000000 0x0 + 0
+4   test3.out                           0x000000010bd5eb30 ft_read_buffer + 96
+5   test3.out                           0x000000010bd5ea68 get_next_line + 56
+6   test3.out                           0x000000010bd5e301 test_gnl_func + 65
+7   test3.out                           0x000000010bd55127 main + 9079
+8   libdyld.dylib                       0x00007fff72f22cc9 start + 1
+
+##==##==##&&##==##==##./test3.out
+Error in test 1: get_next_line(5: "variable_nls.txt"): Segmentation fault!
+0   test3.out                           0x000000010bd5b183 show_signal_msg + 419
+1   test3.out                           0x000000010bd5b221 sigsegv + 33
+2   libsystem_platform.dylib            0x00007fff7311b5fd _sigtramp + 29
+3   ???                                 0x0000000000000000 0x0 + 0
+4   test3.out                           0x000000010bd5eb30 ft_read_buffer + 96
+5   test3.out                           0x000000010bd5ea68 get_next_line + 56
+6   test3.out                           0x000000010bd5e301 test_gnl_func + 65
+7   test3.out                           0x000000010bd5584c main + 10908
+8   libdyld.dylib                       0x00007fff72f22cc9 start + 1
+
+##==##==##&&##==##==##./test3.out
+Error in test 1: get_next_line(5: "lines_around_10.txt"): Segmentation fault!
+0   test3.out                           0x000000010bd5b183 show_signal_msg + 419
+1   test3.out                           0x000000010bd5b221 sigsegv + 33
+2   libsystem_platform.dylib            0x00007fff7311b5fd _sigtramp + 29
+3   ???                                 0x0000000000000000 0x0 + 0
+4   test3.out                           0x000000010bd5eb30 ft_read_buffer + 96
+5   test3.out                           0x000000010bd5ea68 get_next_line + 56
+6   test3.out                           0x000000010bd5e301 test_gnl_func + 65
+7   test3.out                           0x000000010bd5617e main + 13262
+8   libdyld.dylib                       0x00007fff72f22cc9 start + 1
+
+##==##==##&&##==##==##./test3.out
+Error in test 1: get_next_line(5: "giant_line.txt"): Segmentation fault!
+0   test3.out                           0x000000010bd5b183 show_signal_msg + 419
+1   test3.out                           0x000000010bd5b221 sigsegv + 33
+2   libsystem_platform.dylib            0x00007fff7311b5fd _sigtramp + 29
+3   ???                                 0x0000000000000000 0x0 + 0
+4   test3.out                           0x000000010bd5eb30 ft_read_buffer + 96
+5   test3.out                           0x000000010bd5ea68 get_next_line + 56
+6   test3.out                           0x000000010bd5e301 test_gnl_func + 65
+7   test3.out                           0x000000010bd568dd main + 15149
+8   libdyld.dylib                       0x00007fff72f22cc9 start + 1
+
+##==##==##&&##==##==##./test3.out
+Error in test 1: get_next_line(5: "giant_line_nl.txt"): Segmentation fault!
+0   test3.out                           0x000000010bd5b183 show_signal_msg + 419
+1   test3.out                           0x000000010bd5b221 sigsegv + 33
+2   libsystem_platform.dylib            0x00007fff7311b5fd _sigtramp + 29
+3   ???                                 0x0000000000000000 0x0 + 0
+4   test3.out                           0x000000010bd5eb30 ft_read_buffer + 96
+5   test3.out                           0x000000010bd5ea68 get_next_line + 56
+6   test3.out                           0x000000010bd5e301 test_gnl_func + 65
+7   test3.out                           0x000000010bd5700e main + 16990
+8   libdyld.dylib                       0x00007fff72f22cc9 start + 1
+
+##==##==##&&##==##==##./test3.out
+Error in test 1: get_next_line(5: "read_error.txt"): Segmentation fault!
+0   test3.out                           0x000000010bd5b183 show_signal_msg + 419
+1   test3.out                           0x000000010bd5b221 sigsegv + 33
+2   libsystem_platform.dylib            0x00007fff7311b5fd _sigtramp + 29
+3   ???                                 0x0000000000000000 0x0 + 0
+4   test3.out                           0x000000010bd5eb30 ft_read_buffer + 96
+5   test3.out                           0x000000010bd5ea68 get_next_line + 56
+6   test3.out                           0x000000010bd5e301 test_gnl_func + 65
+7   test3.out                           0x000000010bd57680 main + 18640
+8   libdyld.dylib                       0x00007fff72f22cc9 start + 1
+
+##==##==##&&##==##==##./test3.out
+Error in test 1: get_next_line(0: "stdin"): Segmentation fault!
+0   test3.out                           0x000000010bd5b183 show_signal_msg + 419
+1   test3.out                           0x000000010bd5b221 sigsegv + 33
+2   libsystem_platform.dylib            0x00007fff7311b5fd _sigtramp + 29
+3   ???                                 0x0000000000000000 0x0 + 0
+4   test3.out                           0x000000010bd5eb30 ft_read_buffer + 96
+5   test3.out                           0x000000010bd5ea68 get_next_line + 56
+6   test3.out                           0x000000010bd5e301 test_gnl_func + 65
+7   test3.out                           0x000000010bd57f67 main + 20919
+8   libdyld.dylib                       0x00007fff72f22cc9 start + 1
+
+##==##==##&&##==##==##./test3.out

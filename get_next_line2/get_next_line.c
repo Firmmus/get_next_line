@@ -6,7 +6,7 @@
 /*   By: falarcon <falarcon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:31:32 by falarcon          #+#    #+#             */
-/*   Updated: 2023/02/24 18:52:24 by falarcon         ###   ########.fr       */
+/*   Updated: 2023/03/02 11:42:59 by falarcon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ char	*get_next_line(int fd)
 	buffer = ft_updatebuffer(buffer);
 	return (line);
 }
-
 
 char	*ft_read_buffer(int fd, char *buff)
 {
@@ -79,7 +78,6 @@ char	*ft_search_line(char *buff)
 	line[i] = '\0';
 	return (line);
 }
-
 
 char	*ft_updatebuffer(char *buff)
 {
