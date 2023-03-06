@@ -6,7 +6,7 @@
 /*   By: falarcon <falarcon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:04:42 by falarcon          #+#    #+#             */
-/*   Updated: 2023/02/24 18:19:48 by falarcon         ###   ########.fr       */
+/*   Updated: 2023/03/02 11:33:07 by falarcon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*get_next_line(int fd)
 	line = ft_strdup("");
 	if (!line)
 		return (NULL);
-	bytes_read = read_file(fd, buffer, &line);
+	bytes_read = ft_read_file(fd, buffer, &line);
 	if (bytes_read < 0 || !line)
 	{
 		free(line);

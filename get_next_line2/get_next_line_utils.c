@@ -6,7 +6,7 @@
 /*   By: falarcon <falarcon@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:53:10 by falarcon          #+#    #+#             */
-/*   Updated: 2023/02/24 18:57:34 by falarcon         ###   ########.fr       */
+/*   Updated: 2023/03/02 12:41:34 by falarcon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t dstsize)
 
 char	*ft_strchr(char *s, int c)
 {
+<<<<<<< HEAD
 	int	i;
 	
 	i = ft_strlen(s) + 1;
@@ -85,6 +86,24 @@ char	*ft_strchr(char *s, int c)
 	return (0);
 }
 
+=======
+	while (*s != '\0')
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	if (*s == '\0' && (char)c == '\0')
+		return ((char *)s);
+	return (NULL);
+}
+
+char	*ft_strjoin(char *s1, char *s2)
+{
+	char	*str;
+	int		i;
+	int		j;
+>>>>>>> 96bd0bc3af999586baf9a801afcd39637ec4b558
 
 char	*ft_strjoin(char *s1, char *s2)
 {
@@ -108,5 +127,8 @@ char	*ft_strjoin(char *s1, char *s2)
 	free(s1);
 	return (new);
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 96bd0bc3af999586baf9a801afcd39637ec4b558
