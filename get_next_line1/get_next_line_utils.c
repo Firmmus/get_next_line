@@ -12,16 +12,14 @@
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen(const char *s)
 {
-	size_t	idx;
+	size_t	x;
 
-	idx = 0;
-	while (str[idx])
-	{
-		idx++;
-	}
-	return (idx);
+	x = 0;
+	while (s[x] != '\0')
+		x++;
+	return (x);
 }
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
